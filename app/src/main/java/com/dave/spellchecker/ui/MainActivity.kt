@@ -15,6 +15,7 @@ import com.dave.spellchecker.R
 import com.dave.spellchecker.api.ApiProvider
 import com.dave.spellchecker.util.AdProvider
 import com.dave.spellchecker.util.ResultColors
+import com.dave.spellchecker.util.ShareUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
@@ -28,27 +29,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initAdBanner()
-        tv_result_guide.text = getHtml(getGuide())
 
+        tv_result_guide.text = getHtml(getGuide())
         tv_copy.setOnClickListener { copyResultText() }
         tv_check.setOnClickListener { spellCheck() }
-        changeTextSize()
+        et_spell_check.addTextChangedListener(getTextChanger())
+        tv_share.setOnClickListener { shareTextResult() }
+        tv_remove.setOnClickListener { resetSpelling() }
     }
 
-    private fun changeTextSize() {
-        et_spell_check.addTextChangedListener(object: TextWatcher {
-            override fun afterTextChanged(p0: Editable) {
-                tv_text_size.text = getString(R.string.text_size, p0.length)
-            }
+    private fun shareTextResult() {
+        ShareUtil.shareText(this, et_result.text.toString())
+    }
 
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+    private fun resetSpelling() {
+        et_spell_check.setText("")
+        et_result.setText("")
+    }
 
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                tv_text_size.text = getString(R.string.text_size, count)
-            }
-        })
+    private fun getTextChanger(): TextWatcher {
+        return object: TextWatcher {
+            override fun afterTextChanged(p0: Editable) { tv_text_size.text = getString(R.string.text_size, p0.length) }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { tv_text_size.text = getString(R.string.text_size, count) }
+        }
     }
 
     private fun spellCheck() {
