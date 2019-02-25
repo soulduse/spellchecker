@@ -2,6 +2,8 @@
 
 buildscript {
     ext.kotlin_version = '1.2.51'
+    ext.ankoVersion = '0.10.4'
+
     repositories {
         mavenCentral()
         google()
@@ -10,6 +12,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.2.0'
     }
 }
 

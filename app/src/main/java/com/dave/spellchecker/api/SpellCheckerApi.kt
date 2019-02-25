@@ -1,25 +1,16 @@
-package com.dave.spell_checker
+package com.dave.spellchecker.api
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.coroutines.experimental.Deferred
 import retrofit2.http.GET
-import retrofit2.http.HeaderMap
 import retrofit2.http.Query
 
 interface SpellCheckerApi {
-
-    /**
-    .header("X-Timestamp", timestamp)
-    .header("X-API-KEY", apiKey)
-    .header("X-Customer", customerId.toString())
-    .header("X-Signature", Signatures.of(timestamp, request.httpMethod.name, path, secretKey))
-     */
-    @GET("/keywordstool")
-    fun keywordsTool(
-        @HeaderMap headers: Map<String, String>,
-        @Query("hintKeywords") hintKeywords: String,
-        @Query("includeHintKeywords") includeHintKeywords: Int,
-        @Query("showDetail") showDetail: Int
+    @GET("SpellerProxy")
+    fun sellCheck(
+        @Query("q") query: String,
+        @Query("where") where: String = ApiProvider.WHERE,
+        @Query("color_blindness") colorBlindness: Int = ApiProvider.COLOR_BLINDNESS
     ): Deferred<SpellChecker>
 }
 

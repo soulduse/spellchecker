@@ -1,0 +1,74 @@
+{
+  "project_info": {
+    "project_number": "129329350665",
+    "firebase_url": "https://hot-keyword.firebaseio.com",
+    "project_id": "hot-keyword",
+    "storage_bucket": "hot-keyword.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129329350665:android:81e6225de1bb6337",
+        "android_client_info": {
+          "package_name": "com.dave.hotkeyword"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129329350665-jhq3j5ctuu2ivr67e2s54q3hd53dg0ee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALokmx97152jRnG_egGXKjORF1EljyE5Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      },
+      "admob_app_id": "ca-app-pub-7340219384706505~1650346026"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129329350665:android:124d9cc9adc09599",
+        "android_client_info": {
+          "package_name": "com.dave.spellchecker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129329350665-jhq3j5ctuu2ivr67e2s54q3hd53dg0ee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALokmx97152jRnG_egGXKjORF1EljyE5Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
