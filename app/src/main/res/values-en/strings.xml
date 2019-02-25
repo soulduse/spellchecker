@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Hangul spell / space checker</string>
+    <string name="admob_id">ca-app-pub-1908860913688060~4487686332</string>
+    <string name="admob_banner_id">ca-app-pub-1908860913688060/5436191521</string>
+    <string name="admob_interstitial_id">ca-app-pub-1908860913688060/1305374825</string>
+    <string name="hint_edit_spell">Please enter a word or sentence that you want to spell check.</string>
+    <string name="error_api">An unknown error has occurred. It\'s most likely a network problem.</string>
+    <string name="not_copied_text">Please complete the spell check.</string>
+    <string name="copied_text">Results have been copied.</string>
+    <string name="check">check</string>
+    <string name="remove">remove</string>
+    <string name="copy">copy</string>
+    <string name="share">share</string>
+    <string name="text_size">%d/500</string>
+</resources>

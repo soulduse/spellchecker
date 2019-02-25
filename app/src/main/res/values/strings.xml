@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">spell-checker</string>
-    <string name="admob_id">ca-app-pub-1908860913688060~4487686332</string>
-    <string name="admob_banner_id">ca-app-pub-1908860913688060/5436191521</string>
-    <string name="admob_interstitial_id">ca-app-pub-1908860913688060/1305374825</string>
+    <string name="app_name">한글 맞춤범 / 띄어쓰기 검사</string>
+    <string name="admob_id">ca-app-pub-7340219384706505~9142332357</string>
+    <string name="admob_banner_id">ca-app-pub-7340219384706505/6133025635</string>
+    <string name="admob_interstitial_id">ca-app-pub-7340219384706505/3503116578</string>
     <string name="hint_edit_spell">맞춤법 검사를 원하는 단어나 문장을 입력해주세요.</string>
     <string name="error_api">알 수 없는 에러가 발생하였습니다. 네트워크 문제일 가능성이 높습니다.</string>
     <string name="not_copied_text">맞춤법 검사를 완료해주세요.</string>
