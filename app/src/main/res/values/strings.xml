@@ -11,5 +11,5 @@
     <string name="remove">지우기</string>
     <string name="copy">복사</string>
     <string name="share">공유</string>
-    <string name="text_size">%d/500자</string>
+    <string name="text_size">%d/1000자</string>
 </resources>

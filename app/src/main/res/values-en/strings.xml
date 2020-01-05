@@ -11,5 +11,5 @@
     <string name="remove">remove</string>
     <string name="copy">copy</string>
     <string name="share">share</string>
-    <string name="text_size">%d/500</string>
+    <string name="text_size">%d/1000</string>
 </resources>
