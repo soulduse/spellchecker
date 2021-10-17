@@ -24,6 +24,11 @@ class SharedPreferenceProvider @Inject constructor(
         isFinishedAppReview = true
     }
 
+    fun appOpened() {
+        val openCount = appOpenedCount + 1
+        pref.edit { putInt(PREF_APP_OPENED_COUNT, openCount) }
+    }
+
     companion object {
         private const val PREF_APP_OPENED_COUNT = "PREF_APP_OPENED_COUNT"
         private const val PREF_REVIEW_FINISHED = "PREF_REVIEW_FINISHED"

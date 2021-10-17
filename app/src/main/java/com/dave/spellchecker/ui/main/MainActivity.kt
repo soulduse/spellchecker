@@ -21,10 +21,12 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
 
     private val viewModel by viewModels<MainViewModel>()
     private val clipboard: ClipboardManager by lazy { getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager }
+    @Inject lateinit var sharedPreferenceProvider: SharedPreferenceProvider
     @Inject lateinit var reviewProvider: ReviewProvider
     @Inject lateinit var adProvider: AdProvider
 
     override fun setup() {
+        throw Exception()
         initAdBanner()
         binding.tvResultGuide.text = getGuide().toHtmlSpanned()
         binding.tvCopy.setOnClickListener { copyResultText() }
@@ -33,6 +35,7 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
         binding.tvShare.setOnClickListener { shareTextResult() }
         binding.tvRemove.setOnClickListener { resetSpelling() }
         subscribeUI()
+        sharedPreferenceProvider.appOpened()
         reviewProvider.ask(this)
     }
 
