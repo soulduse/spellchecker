@@ -1,15 +1,19 @@
 package com.dave.spellchecker.ui
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.dave.spellchecker.R
+import com.dave.spellchecker.ui.main.MainActivity
 import com.dave.spellchecker.util.AdProvider
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.singleTop
+import com.dave.spellchecker.util.start
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
 
-    private val adProvider: AdProvider by lazy { AdProvider.getInstance(this) }
+    @Inject
+    lateinit var adProvider: AdProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,14 +22,15 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun initAd() {
-        adProvider
-                .init()
-                .listener { goToMain() }
-                .loadInterstitialAd()
+        adProvider.with(this)
+            .fallback { goToMain() }
+            .dismissCallback { goToMain() }
+            .loadInterstitialAd()
+            .afterLoaded { adProvider.show() }
     }
 
     private fun goToMain() {
-        startActivity(intentFor<MainActivity>().singleTop())
+        start<MainActivity>()
         finish()
     }
 }

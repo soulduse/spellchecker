@@ -12,4 +12,6 @@
     <string name="copy">copy</string>
     <string name="share">share</string>
     <string name="text_size">%d/1000</string>
+    <string name="error_message_unexpected_server_response">Unable to receive data from the server. Please try again in a few moments.</string>
+    <string name="message_error_no_internet">Could not connected internet.</string>
 </resources>
