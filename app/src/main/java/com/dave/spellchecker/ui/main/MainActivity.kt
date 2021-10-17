@@ -26,7 +26,6 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
     @Inject lateinit var adProvider: AdProvider
 
     override fun setup() {
-        throw Exception()
         initAdBanner()
         binding.tvResultGuide.text = getGuide().toHtmlSpanned()
         binding.tvCopy.setOnClickListener { copyResultText() }
