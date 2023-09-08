@@ -2,14 +2,14 @@
 
 buildscript {
     ext {
-        kotlinVersion = "1.5.21"
+        kotlinVersion = "1.8.0"
         coroutinesVersion = '1.3.8'
         splittiesVersion = '3.0.0-alpha06'
         retrofitVersion = '2.9.0'
         okhttpLoggingVersion = '5.0.0-alpha.2'
 
-        hiltAndroidVersion = '2.38.1'
-        hiltCommonVersion = '1.0.0'
+        hiltAndroidVersion = '2.48'
+        hiltCommonVersion = '1.1.0-alpha01'
         materialVersion = '1.5.0-alpha01'
     }
 
@@ -19,11 +19,11 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.3"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+        classpath 'com.android.tools.build:gradle:8.1.1'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0'
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltAndroidVersion"
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.7.1'
-        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.9'
+        classpath 'com.google.gms:google-services:4.3.15'
     }
 }
 
