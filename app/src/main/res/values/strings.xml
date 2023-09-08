@@ -11,7 +11,15 @@
     <string name="remove">지우기</string>
     <string name="copy">복사</string>
     <string name="share">공유</string>
-    <string name="text_size">%d/1000자</string>
+    <string name="text_size">%d/2000자</string>
+    <string name="text_size_normal">%d/500자</string>
     <string name="error_message_unexpected_server_response">서버로 부터 정보를 받을 수 없습니다. 잠시후 다시 시도해주세요.</string>
     <string name="message_error_no_internet">인터넷 연결이 원할하지 않습니다.</string>
+    <string name="weekly">주간</string>
+    <string name="monthly">월마다</string>
+    <string name="yearly">연간</string>
+    <string name="remove_ads">광고제거</string>
+    <string name="discount_xx_off">지금 %d%% 할인 받으세요!</string>
+    <string name="subscription_info">구독은 동일한 가격과 기간으로 자동 갱신되며 Google Play 설정에서 언제든지 구독을 관리하거나 취소할 수 있습니다.</string>
+    <string name="payment_info_unavailable">결제 정보를 불러 올 수 없습니다. 잠시후 다시 시도해주세요.</string>
 </resources>

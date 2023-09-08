@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DotAnimationView">
+        <attr name="dotCount" format="integer" />
+        <attr name="title" format="string" />
+        <attr name="titleFormatArg" format="string"/>
+        <attr name="autoStartAnimation" format="boolean" />
+        <attr name="animationType" format="enum">
+            <enum name="SCALE" value="0"/>
+            <enum name="FADE" value="1"/>
+            <enum name="TRANSLATE" value="2"/>
+            <enum name="ROTATE" value="3"/>
+            <enum name="FLIP" value="4"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ShimmerBackgroundView">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="shimmerColors" format="reference" />
+    </declare-styleable>
+</resources>

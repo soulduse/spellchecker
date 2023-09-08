@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="shimmer_colors">
+        <item>@color/gold_color1</item>
+        <item>@color/gold_color2</item>
+        <item>@color/gold_color3</item>
+        <item>@color/gold_color4</item>
+        <item>@color/gold_color5</item>
+        <item>@color/gold_color4</item>
+        <item>@color/gold_color3</item>
+        <item>@color/gold_color2</item>
+        <item>@color/gold_color1</item>
+    </array>
+</resources>
