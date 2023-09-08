@@ -87,7 +87,7 @@ class AdProvider @Inject constructor(
         adView.addView(
             AdView(context).apply {
                 adUnitId = TEST_BANNER_ID or context.getStringSafe(R.string.admob_banner_id)
-                adSize = getBannerSize(adView)
+                setAdSize(getBannerSize(adView))
                 loadAd(adRequest)
             }
         )
