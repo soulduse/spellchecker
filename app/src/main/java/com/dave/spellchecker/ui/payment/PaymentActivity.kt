@@ -93,14 +93,12 @@ class PaymentActivity : ViewBindingActivity<ActivityPaymentBinding>() {
         }
 
     private fun setProductPrices(productId: String) {
-        val billingItem1W =
-            viewModel.getBillingItemForPeriod(productId, BillingPeriod.P1W) ?: return
         val billingItem1M =
             viewModel.getBillingItemForPeriod(productId, BillingPeriod.P1M) ?: return
         val billingItem1Y =
             viewModel.getBillingItemForPeriod(productId, BillingPeriod.P1Y) ?: return
 
-        setSingleProductPrice(billingItem1W, binding.tvPrice1)
+        binding.tvPrice1.visibility = View.GONE
         setSingleProductPrice(billingItem1M, binding.tvPrice2)
         setSingleProductPrice(billingItem1Y, binding.tvPrice, binding.tvPeriod, binding.btnPay)
     }
