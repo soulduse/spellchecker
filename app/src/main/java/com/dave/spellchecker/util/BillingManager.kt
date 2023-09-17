@@ -189,7 +189,6 @@ class BillingManager @Inject constructor(
             .setProductType(BillingClient.ProductType.SUBS)
             .build()
         billingClient.queryPurchasesAsync(query) { billingResult, purchases ->
-            Timber.d("updatePurchases billingResult: $billingResult, purchases: $purchases")
             if (billingResult.responseCode != BillingClient.BillingResponseCode.OK || purchases.isEmpty()) {
                 pref.hasSubscribing = false
                 return@queryPurchasesAsync

@@ -26,7 +26,6 @@ import com.dave.spellchecker.util.toHtmlSpanned
 import com.dave.spellchecker.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
@@ -59,6 +58,7 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
         binding.tvRemove.setOnClickListener { resetSpelling() }
         binding.vipButton.setOnClickListener { start<PaymentActivity>() }
         subscribeUI()
+        hideVipButtonForSubscriber()
         sharedPreferenceProvider.appOpened()
         reviewProvider.ask(this)
         controlVipButton()
@@ -137,11 +137,16 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
 
     override fun onResume() {
         super.onResume()
-        Timber.d("onResume @@@@@@@@@")
+        hideVipButtonForSubscriber()
         if (pref.hasSubscribing) {
             binding.adBanner.visibility = View.GONE
             binding.etSpellCheck.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(2000))
         }
+    }
+
+    private fun hideVipButtonForSubscriber() {
+        if (pref.hasSubscribing) binding.vipButton.visibility = View.GONE
+        else binding.vipButton.visibility = View.VISIBLE
     }
 
     private fun initAdBanner() {
@@ -150,6 +155,8 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
     }
 
     private fun controlVipButton() {
+        hideVipButtonForSubscriber()
+        if (pref.hasSubscribing) return
         binding.nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
             if (scrollY > oldScrollY) {
                 // 아래로 스크롤 중
