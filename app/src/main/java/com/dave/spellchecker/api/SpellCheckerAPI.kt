@@ -2,20 +2,16 @@ package com.dave.spellchecker.api
 
 import com.dave.spellchecker.network.dto.SpellChecker
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 interface SpellCheckerAPI {
-    @GET("/p/csearch/ocontent/util/SpellerProxy")
+    @POST("/api/v1/spellCheck")
     suspend fun sellCheck(
-        @Query("q") query: String,
-        @Query("where") where: String = WHERE,
-        @Query("color_blindness") colorBlindness: Int = COLOR_BLINDNESS
+        @Body query: SpellCheckerRequest,
     ): Response<SpellChecker>
-
-    companion object {
-        private const val WHERE = "nexearch"
-        private const val COLOR_BLINDNESS = 0
-    }
 }
 
+data class SpellCheckerRequest(
+    val query: String
+)

@@ -1,6 +1,7 @@
 package com.dave.spellchecker.ui.main
 
 import com.dave.spellchecker.api.SpellCheckerAPI
+import com.dave.spellchecker.api.SpellCheckerRequest
 import com.dave.spellchecker.network.common.IBoundResource
 import com.dave.spellchecker.network.common.Mapper
 import com.dave.spellchecker.network.common.NetworkBoundResource
@@ -16,7 +17,7 @@ class MainRepository @Inject constructor(
     fun spellCheck(query: String): IBoundResource<SpellCheckerPOJO> {
         return object : NetworkBoundResource<SpellCheckerPOJO, SpellChecker>() {
             override suspend fun getApiCallAsync(): Response<SpellChecker> {
-                return api.sellCheck(query)
+                return api.sellCheck(SpellCheckerRequest(query))
             }
 
             override suspend fun mapToPOJO(data: SpellChecker): SpellCheckerPOJO? {

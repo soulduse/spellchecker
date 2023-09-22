@@ -91,5 +91,5 @@ class NetworkModule {
     @Provides
     @Singleton
     @BaseUrl
-    fun provideBaseUrl(): String = "https://m.search.naver.com/"
+    fun provideBaseUrl(): String = "https://oror.link/"
 }
