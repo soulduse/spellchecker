@@ -50,6 +50,7 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
 
     override fun setup() {
         initAdBanner()
+        binding.viewModel = viewModel
         binding.tvResultGuide.text = getGuide().toHtmlSpanned()
         binding.tvCopy.setOnClickListener { copyResultText() }
         binding.tvCheck.setOnClickListener { spellCheck() }
@@ -57,6 +58,7 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
         binding.tvShare.setOnClickListener { shareTextResult() }
         binding.tvRemove.setOnClickListener { resetSpelling() }
         binding.vipButton.setOnClickListener { start<PaymentActivity>() }
+        binding.lifecycleOwner = this
         subscribeUI()
         hideVipButtonForSubscriber()
         sharedPreferenceProvider.appOpened()
@@ -103,6 +105,7 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
     private fun subscribeUI() {
         viewModel.htmlResult.observe { result -> binding.etResult.setText(result.toHtmlSpanned()) }
         viewModel.toast.observe { message -> toast(message.messageRes) }
+        viewModel.finish.observe { isFinish -> binding.tvCheck.isEnabled = isFinish }
     }
 
     private fun copyResultText() {

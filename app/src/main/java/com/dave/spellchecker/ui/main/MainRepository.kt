@@ -9,12 +9,13 @@ import com.dave.spellchecker.network.dto.SpellChecker
 import com.dave.spellchecker.network.pojo.SpellCheckerPOJO
 import retrofit2.Response
 import javax.inject.Inject
+import kotlinx.coroutines.CoroutineScope
 
 class MainRepository @Inject constructor(
     private val api: SpellCheckerAPI,
 ) {
 
-    fun spellCheck(query: String): IBoundResource<SpellCheckerPOJO> {
+    fun spellCheck(scope: CoroutineScope, query: String): IBoundResource<SpellCheckerPOJO> {
         return object : NetworkBoundResource<SpellCheckerPOJO, SpellChecker>() {
             override suspend fun getApiCallAsync(): Response<SpellChecker> {
                 return api.sellCheck(SpellCheckerRequest(query))
@@ -23,6 +24,6 @@ class MainRepository @Inject constructor(
             override suspend fun mapToPOJO(data: SpellChecker): SpellCheckerPOJO? {
                 return Mapper.map(data)
             }
-        }
+        }.launchIn(scope)
     }
 }
