@@ -48,6 +48,10 @@ class PaymentActivity : ViewBindingActivity<ActivityPaymentBinding>() {
             .startConnection()
     }
 
+    override fun initViews() {
+        // Do something
+    }
+
     private fun loadingSwitch(isLoading: Boolean) {
         if (isLoading) {
             nullableBinding?.loadingOverlay?.visibility = View.VISIBLE

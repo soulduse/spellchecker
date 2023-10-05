@@ -33,6 +33,7 @@ abstract class ViewBindingActivity<VB : ViewBinding> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = bindingInflater.invoke(layoutInflater)
         setContentView(requireNotNull(_binding).root)
+        initViews()
         Handler(Looper.getMainLooper()).postDelayed({
             setup()
         }, 200)
@@ -40,10 +41,12 @@ abstract class ViewBindingActivity<VB : ViewBinding> : AppCompatActivity() {
 
     abstract fun setup()
 
+    abstract fun initViews()
+
     inline fun <T> LiveData<T>.observe(crossinline function: (T) -> Unit) =
         this.observe(this@ViewBindingActivity) {
             it?.let(
-                function
+                function,
             )
         }
 

@@ -10,9 +10,9 @@ import com.dave.spellchecker.util.Message
 import com.dave.spellchecker.util.SingleLiveData
 import com.dave.spellchecker.util.getErrorMessage
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
@@ -47,6 +47,7 @@ class MainViewModel @Inject constructor(
                             _isLoading.value = false
                             _finish.value = true
                         }
+
                         is Resource.Loading -> _isLoading.value = response.isLoading
                     }
                 }

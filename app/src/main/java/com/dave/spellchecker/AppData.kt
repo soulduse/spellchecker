@@ -1,7 +1,8 @@
-package com.dave.ai
+package com.dave.spellchecker
 
 object AppData {
     const val APP_TITLE = "replace.app_title"
+    const val APP_ID = 17L
     const val APP_NAME = "replace.app_name"
     const val FULL_AD_ID = "replace.full_id"
     const val BANNER_AD_ID = "replace.banner_id"

@@ -1,37 +1,62 @@
 package com.dave.spellchecker.ui
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.dave.spellchecker.R
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.View
+import com.dave.spellchecker.AppData
+import com.dave.spellchecker.databinding.ActivitySplashBinding
 import com.dave.spellchecker.ui.main.MainActivity
 import com.dave.spellchecker.util.AdProvider
-import com.dave.spellchecker.util.BillingManager
-import com.dave.spellchecker.util.SharedPreferenceProvider
 import com.dave.spellchecker.util.start
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SplashActivity : AppCompatActivity() {
-
-    @Inject
-    lateinit var billingManager: BillingManager
+class SplashActivity : ViewBindingActivity<ActivitySplashBinding>() {
+    override val bindingInflater: (LayoutInflater) -> ActivitySplashBinding =
+        ActivitySplashBinding::inflate
 
     @Inject
     lateinit var adProvider: AdProvider
 
-    @Inject
-    lateinit var pref: SharedPreferenceProvider
+    override fun setup() {
+        initSplashView()
+        initAd()
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
-        initBillingManager()
-        if (!pref.hasSubscribing) {
-            initAd()
-            return
+    override fun initViews() {
+        // Do something
+    }
+
+    private fun initSplashView() {
+        when (AppData.APP_ID) {
+            15L -> {
+                binding.clContainer.setBackgroundColor(Color.parseColor("#DDF4FF"))
+                binding.ivAppIcon.visibility = View.VISIBLE
+                binding.tvAppName.visibility = View.GONE
+                binding.tvBackgroundText.visibility = View.GONE
+            }
+
+            16L -> {
+                binding.clContainer.setBackgroundColor(Color.BLACK)
+                binding.ivAppIcon.visibility = View.GONE
+                binding.tvAppName.visibility = View.VISIBLE
+                binding.tvBackgroundText.visibility = View.GONE
+            }
+
+            17L -> {
+                binding.clContainer.setBackgroundColor(Color.parseColor("#B992F1"))
+                binding.ivAppIcon.visibility = View.GONE
+                binding.tvAppName.visibility = View.GONE
+                binding.tvBackgroundText.visibility = View.VISIBLE
+            }
+
+            else -> {
+                binding.ivAppIcon.visibility = View.VISIBLE
+                binding.tvAppName.visibility = View.GONE
+                binding.tvBackgroundText.visibility = View.GONE
+            }
         }
-        goToMain()
     }
 
     private fun initAd() {
@@ -40,10 +65,6 @@ class SplashActivity : AppCompatActivity() {
             .dismissCallback { goToMain() }
             .loadInterstitialAd()
             .afterLoaded { adProvider.show() }
-    }
-
-    private fun initBillingManager() {
-        billingManager.startConnection()
     }
 
     private fun goToMain() {
