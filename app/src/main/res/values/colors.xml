@@ -22,4 +22,8 @@
     <color name="gold_color3">#cc9509</color> <!-- Moderate Gold -->
     <color name="gold_color4">#ffd700</color> <!-- Bright Gold -->
     <color name="gold_color5">#ffea82</color> <!-- Very Bright Gold -->
+
+    <color name="other_chat_bubble_color">#FFFFFF</color> <!-- 흰색 -->
+    <color name="border_color">#000000</color>
+    <color name="icon_color">@color/black</color>
 </resources>

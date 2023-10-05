@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hangul spell / space checker</string>
+    <string name="app_name">맞춤법 검사기 - 띄어쓰기, 글자수세기</string>
     <string name="admob_id">ca-app-pub-1908860913688060~4487686332</string>
     <string name="admob_banner_id">ca-app-pub-1908860913688060/5436191521</string>
     <string name="admob_interstitial_id">ca-app-pub-1908860913688060/1305374825</string>
@@ -11,7 +11,6 @@
     <string name="remove">remove</string>
     <string name="copy">copy</string>
     <string name="share">share</string>
-    <string name="text_size">%d/2000</string>
     <string name="text_size_normal">%d/500</string>
     <string name="error_message_unexpected_server_response">Unable to receive data from the server. Please try again in a few moments.</string>
     <string name="message_error_no_internet">Could not connected internet.</string>
@@ -22,4 +21,5 @@
     <string name="discount_xx_off">Get %d%% off now!</string>
     <string name="subscription_info">The subscription is automatically renewed at the same price and duration and can be managed or cancelled in the Google Play settings at any time.</string>
     <string name="payment_info_unavailable">Unable to load payment information. Please try again later.</string>
+    <string name="extra_app_name">Korean\n\n Spell\n\n  Checker</string>
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="other_chat_bubble_color">@color/gray_7</color> &lt;!&ndash; 회색 &ndash;&gt;-->
+<!--    <color name="border_color">#EAEAEA</color>-->
+    <color name="icon_color">@color/white</color>
+</resources>
