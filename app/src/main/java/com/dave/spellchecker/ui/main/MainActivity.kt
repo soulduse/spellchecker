@@ -259,7 +259,7 @@ class MainActivity : ViewBindingActivity<ActivityMainBinding>() {
     }
 
     private fun initAdBanner() {
-//        if (pref.hasSubscribing) return
-//        adProvider.loadBannerAd(binding.adBanner)
+        if (pref.hasSubscribing) return
+        adProvider.loadBannerAd(binding.adBanner)
     }
 }

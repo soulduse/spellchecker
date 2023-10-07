@@ -8,6 +8,7 @@ import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.view.WindowInsets
 import android.view.WindowManager
+import com.dave.spellchecker.AppData
 import com.dave.spellchecker.BuildConfig
 import com.dave.spellchecker.R
 import com.google.android.gms.ads.*
@@ -36,7 +37,7 @@ import javax.inject.Singleton
 
 @Singleton
 class AdProvider @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
 ) {
 
     private val adRequest by lazy { AdRequest.Builder().build() }
@@ -65,9 +66,9 @@ class AdProvider @Inject constructor(
         Timber.d("INTERSTITIAL_ID : ${TEST_INTERSTITIAL_ID or context.getStringSafe(R.string.admob_interstitial_id)}")
         InterstitialAd.load(
             context,
-            TEST_INTERSTITIAL_ID or context.getStringSafe(R.string.admob_interstitial_id),
+            TEST_INTERSTITIAL_ID or AppData.FULL_AD_ID,
             adRequest,
-            getInterstitialAdLoadCallback()
+            getInterstitialAdLoadCallback(),
         )
         return this
     }
@@ -86,10 +87,10 @@ class AdProvider @Inject constructor(
     fun loadBannerAd(adView: ViewGroup) {
         adView.addView(
             AdView(context).apply {
-                adUnitId = TEST_BANNER_ID or context.getStringSafe(R.string.admob_banner_id)
+                adUnitId = TEST_BANNER_ID or AppData.BANNER_AD_ID
                 setAdSize(getBannerSize(adView))
                 loadAd(adRequest)
-            }
+            },
         )
     }
 
